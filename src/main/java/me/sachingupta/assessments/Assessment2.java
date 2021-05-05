@@ -1,6 +1,5 @@
 package me.sachingupta.assessments;
 
-
 import static org.apache.spark.sql.functions.callUDF;
 import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.count;
