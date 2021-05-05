@@ -48,12 +48,17 @@ public class Assessment3 {
 				t2 = itr.next();
 				if(t1._1() != t2._1()) {
 					
-					if(t1._2().equalsIgnoreCase("male") && t2._2().equalsIgnoreCase("female") ) {
-						list.add(new Tuple2<Long, Long>(t1._1, new Long(1)));
-					}
-					if(t2._2().equalsIgnoreCase("male") && t1._2().equalsIgnoreCase("female") ) {
-						list.add(new Tuple2<Long, Long>(t1._1, new Long(1)));
-					} 
+					if(t1._2().equalsIgnoreCase("male")) 
+						if(t2._2().equalsIgnoreCase("female") ) 
+							list.add(new Tuple2<Long, Long>(t1._1, new Long(1)));
+						else
+							list.add(new Tuple2<Long, Long>(t1._1, new Long(0)));
+					if(t1._2().equalsIgnoreCase("f2male")) 
+						if(t2._2().equalsIgnoreCase("male") ) 
+							list.add(new Tuple2<Long, Long>(t1._1, new Long(1)));
+						else
+							list.add(new Tuple2<Long, Long>(t1._1, new Long(0)));
+					 
 					
 				} else {
 					list.add(new Tuple2<Long, Long>(t1._1, new Long(0)));
