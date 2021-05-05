@@ -9,7 +9,7 @@ public class App
     {
     	// System.setProperty("HADOOP_HOME", "C:\\MyData\\Programs\\spark-3.1.1-bin-hadoop3.2");
     	Logger.getLogger("org.apache").setLevel(Level.WARN);
-        Assessment2 ass = new Assessment2();
+        Assessment3 ass = new Assessment3();
         ass.execute();
     }
 }
