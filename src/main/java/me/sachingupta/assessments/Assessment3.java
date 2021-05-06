@@ -100,12 +100,12 @@ public class Assessment3 implements Serializable {
 		// data2.collect().forEach(System.out::println);
 		data2 = data2.reduceByKey((r1, r2) -> r1 + r2);
 		
-		/*Long parts = data2.values().reduce((a, b) -> Math.max(a, b));
+		int parts = (int) data2.values().distinct().count();
 		
 		JavaPairRDD<Tuple2<Long, Long>, Long> data3 = data2.mapToPair(d -> new Tuple2<Tuple2<Long, Long>, Long>(d, d._2()))
-				.sortByKey(new TupleValueComparator(), false, parts.intValue());
+				.sortByKey(new Tuple2ValueComparator(), false, parts);
 		data2 = data3.mapToPair(d -> new Tuple2<Long, Long>(d._1._1, d._1._2));
-		*/System.out.println("owner_id,count");
+		System.out.println("owner_id,count");
 		data2.collect().forEach(t -> System.out.println(t._1() + "," + t._2()));
 	}
 	
@@ -117,19 +117,6 @@ public class Assessment3 implements Serializable {
 			sc.close();
 		log.info("Spark session closed....");
 	}
-	
-	class TupleValueComparator implements Comparator<Tuple2<Long, Long>>,Serializable {
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		public int compare(Tuple2<Long, Long> tuple1, Tuple2<Long, Long> tuple2) {
-			if (tuple1._2.compareTo(tuple2._2) == 0) {
-	            return tuple1._1.compareTo(tuple2._1);
-	        }
-	        return -tuple1._2.compareTo(tuple2._2);
-		}
-	}
-	
 }
 
 
